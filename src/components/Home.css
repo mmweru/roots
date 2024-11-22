@@ -1,0 +1,246 @@
+/* Updated CSS */
+
+/* General Styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Libre Baskerville", serif;
+}
+
+.landing-page {
+  background: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  color: #00a035;
+  transition: background 0.3s, color 0.3s;
+}
+
+.landing-page.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  top: 1px;
+  left: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  padding: 1rem 3rem;
+  background: inherit;
+  position: absolute;
+  z-index: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.nav-links li a:hover::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background: currentColor;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.btn-primary {
+  padding: 0.5rem 1rem;
+  background: #00a035;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #007824;
+}
+
+.btn-outline {
+  padding: 0.5rem 1rem;
+  background: none;
+  color: inherit;
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-outline:hover {
+  background: #00a035;
+  color: white;
+  border-color: #00a035;
+}
+.theme-toggle {
+  background: none;
+  border: green;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  background: #00a035;
+  border-radius: 160px 160px 0 0;
+  box-shadow: 36px 17px 7.300000190734863px rgba(0, 0, 0, 0.40);
+  display: flex;
+  top: 170px;
+  justify-content: center;
+  align-items: flex-start;
+  left: -60px;
+  margin-left: -30px; /* To overlap part of the image on the left */
+}
+
+.hero-image {
+  width: 190%;
+  height: 520px;
+  position: absolute;
+  top: -178px;
+  left: -180px; /* Adjust positioning for overlap */
+}
+
+/* Mobile Menu Styles */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  transition: all 0.5s;
+}
+
+.nav-links.open {
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: inherit;
+  padding: 1rem 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.nav-links li {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: bounceIn 0.5s forwards ease-in-out;
+}
+
+.nav-links li.bounce {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for the shimmering effect with outlined and filled states */
+@keyframes fillOutlineShimmer {
+    0% {
+        color: transparent; /* Text starts transparent */
+        text-shadow: none;
+    }
+    25% {
+        color: transparent;
+        text-shadow: 0 0 2px white, 0 0 4px rgb(128, 238, 128), 0 0 8px green; /* Outline in green */
+        animation-fill-mode: backwards;
+        animation-delay: 6s;
+    }
+    50% {
+        color: green; /* Starts filling with green */
+        text-shadow: none;
+    }
+    75% {
+        color: green; /* Fully filled green */
+    }
+    100% {
+        color: transparent; /* Goes back to transparent */
+        text-shadow: none;
+    }
+}
+
+/* Text class for the effect */
+.regen-text {
+    font-size: 128px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    position: absolute;
+    animation: fillOutlineShimmer 16s ease-in-out;
+}
+
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: flex;
+    }
+  }
+
+  
