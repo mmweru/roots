@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import SplashScreen from './components/Splash';
 import Home from './components/Home';
+import Testimonials from './components/Testimonials';
+import Dashboard from './components/Investors';
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true); // Controls whether the splash screen is visible
-  const [exitSplash, setExitSplash] = useState(false); // Controls the exit animation for the splash screen
+  const [showSplash, setShowSplash] = useState(true);
+  const [exitSplash, setExitSplash] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setExitSplash(true); // Trigger the exit animation
+      setExitSplash(true);
       setTimeout(() => {
-        setShowSplash(false); // Remove splash screen after animation
-      }, 1000); // Duration of the exit animation
-    }, 3000); // 30-second delay for the splash screen
+        setShowSplash(false);
+      }, 1000); // Matches animation duration
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="app">
-      {showSplash ? (
-        <div className={`splash-container ${exitSplash ? 'slide-out' : ''}`}>
-          <SplashScreen />
-        </div>
-      ) : (
-        <div className="home-container slide-in">
-          <Home />
-        </div>
-      )}
-    </div>
+    <Router>
+      <div className="app">
+        {showSplash ? (
+          <div className={`splash-container ${exitSplash ? 'slide-out' : ''}`}>
+            <SplashScreen />
+          </div>
+        ) : (
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Routes>
+        )}
+      </div>
+    </Router>
   );
 }
 

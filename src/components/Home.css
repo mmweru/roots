@@ -1,24 +1,29 @@
-/* Updated CSS */
-
 /* General Styles */
 body,
-html {
+body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  font-family: "Libre Baskerville", serif;
+  font-family: 'Jacques François', sans-serif;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 .landing-page {
-  background: #ffffff;
   width: 100vw;
   height: 100vh;
-  color: #00a035;
   transition: background 0.3s, color 0.3s;
 }
 
+/* Light Theme */
+.landing-page {
+  background: linear-gradient(135deg, #1cdf4d 0%, #eaeaea 50%, #00a035 100%);
+  color: #00a035;
+}
+
+/* Dark Theme */
 .landing-page.dark {
-  background: #121212;
-  color: #ffffff;
+  background: linear-gradient(135deg, #0b0b0b 0%, #025702dc 40%, #010501 100%);
+  color: #fff;
 }
 
 /* Navbar */
@@ -93,9 +98,10 @@ html {
   color: white;
   border-color: #00a035;
 }
+
 .theme-toggle {
   background: none;
-  border: green;
+  border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -119,21 +125,21 @@ html {
   height: 450px;
   background: #00a035;
   border-radius: 160px 160px 0 0;
-  box-shadow: 36px 17px 7.300000190734863px rgba(0, 0, 0, 0.40);
+  box-shadow: 36px 17px 7.3px rgba(0, 0, 0, 0.4);
   display: flex;
-  top: 170px;
+  top: 30px;
   justify-content: center;
   align-items: flex-start;
   left: -60px;
-  margin-left: -30px; /* To overlap part of the image on the left */
+  margin-left: -30px;
 }
 
 .hero-image {
   width: 190%;
   height: 520px;
   position: absolute;
-  top: -178px;
-  left: -180px; /* Adjust positioning for overlap */
+  top: -108px;
+  left: -180px;
 }
 
 /* Mobile Menu Styles */
@@ -198,49 +204,45 @@ html {
   }
 }
 
-/* Keyframes for the shimmering effect with outlined and filled states */
+/* Keyframes for the shimmering effect */
 @keyframes fillOutlineShimmer {
-    0% {
-        color: transparent; /* Text starts transparent */
-        text-shadow: none;
-    }
-    25% {
-        color: transparent;
-        text-shadow: 0 0 2px white, 0 0 4px rgb(128, 238, 128), 0 0 8px green; /* Outline in green */
-        animation-fill-mode: backwards;
-        animation-delay: 6s;
-    }
-    50% {
-        color: green; /* Starts filling with green */
-        text-shadow: none;
-    }
-    75% {
-        color: green; /* Fully filled green */
-    }
-    100% {
-        color: transparent; /* Goes back to transparent */
-        text-shadow: none;
-    }
+  0% {
+    color: transparent;
+    text-shadow: none;
+  }
+  25% {
+    color: transparent;
+    text-shadow: 0 0 2px white, 0 0 4px rgb(128, 238, 128), 0 0 8px green;
+    animation-fill-mode: backwards;
+    animation-delay: 6s;
+  }
+  50% {
+    color: green;
+    text-shadow: none;
+  }
+  75% {
+    color: green;
+  }
+  100% {
+    color: transparent;
+    text-shadow: none;
+  }
 }
 
-/* Text class for the effect */
 .regen-text {
-    font-size: 128px;
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    position: absolute;
-    animation: fillOutlineShimmer 16s ease-in-out;
+  font-size: 128px;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  position: absolute;
+  animation: fillOutlineShimmer 16s ease-in-out;
 }
 
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-  
-    .menu-icon {
-      display: flex;
-    }
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
   }
 
-  
+  .menu-icon {
+    display: flex;
+  }
+}

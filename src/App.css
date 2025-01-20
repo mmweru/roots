@@ -43,3 +43,30 @@
 .read-the-docs {
   color: #888;
 }
+/* Updated slide-out animation */
+.slide-out {
+  animation: slide-out 1s ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Slide-in animation for Home screen */
+.home-container {
+  animation: slide-in 1s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
