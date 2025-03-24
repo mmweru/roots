@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import "./Testimonials.css";
+import InvestorDashboard from './Investors';
 
 const Testimonials = forwardRef(({ isDarkMode }, ref) => {
   const testimonials = [
@@ -25,6 +26,17 @@ const Testimonials = forwardRef(({ isDarkMode }, ref) => {
       image: "/investors.png",
     },
   ];
+  
+  const scrollToNextSection = () => {
+    // Get the height of the current section
+    const currentSectionHeight = ref.current.offsetHeight;
+    
+    // Scroll to the next section (current position + current section height)
+    window.scrollTo({
+      top: window.pageYOffset + currentSectionHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div
@@ -38,6 +50,7 @@ const Testimonials = forwardRef(({ isDarkMode }, ref) => {
           Hear from our investors and farmers who are driving the change in regenerative farming.
         </p>
       </header>
+      
       <section className="testimonials-container">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="testimonial-card">
@@ -46,12 +59,13 @@ const Testimonials = forwardRef(({ isDarkMode }, ref) => {
               alt={`${testimonial.name}`}
               className="testimonial-avatar"
             />
-            <p className="testimonial-quote">“{testimonial.quote}”</p>
+            <p className="testimonial-quote">"{testimonial.quote}"</p>
             <h3 className="testimonial-name">{testimonial.name}</h3>
             <p className="testimonial-title">{testimonial.title}</p>
           </div>
         ))}
       </section>
+      
       <footer className="testimonials-footer">
         <p>
           Want to be part of this transformative journey?{" "}
@@ -60,6 +74,15 @@ const Testimonials = forwardRef(({ isDarkMode }, ref) => {
           </a>
         </p>
       </footer>
+      
+      {/* Scroll Indicator with additional margin-top */}
+      <div className="scroll-indicator" onClick={scrollToNextSection}>
+        <div className="scroll-arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   );
 });

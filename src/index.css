@@ -10,6 +10,10 @@ html, body {
   height: 100%;
   overflow: hidden; /* Prevent scrolling */
 }
+body {
+  background: linear-gradient(135deg, #0b0b0b 0%, #025702dc 40%, #010501 100%);
+}
+
 
 
 :root {

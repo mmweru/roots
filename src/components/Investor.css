@@ -26,7 +26,6 @@ html {
   color: #004d40;
 }
 
-
 .custom-gradient-light {
   background: linear-gradient(135deg, #1cdf4d 0%, #eaeaea 50%, #00a035 100%);
   color: #004d40;
@@ -37,3 +36,112 @@ html {
   color: #fff;
 }
 
+/* Scroll Indicator Styles - FIXED STYLES FOR INVESTOR DASHBOARD */
+.investor-scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+  z-index: 100;
+}
+
+.scroll-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme - dark green text */
+.dashboard-page .scroll-text,
+.custom-gradient-light .scroll-text {
+  color: #004d40;
+}
+
+/* Dark theme - white text */
+.dashboard-page.dark .scroll-text,
+.custom-gradient-dark .scroll-text {
+  color: #ffffff;
+}
+
+.scroll-arrow {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.scroll-arrow span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  transform: rotate(-45deg);
+  animation: scrollArrow 2s infinite;
+  opacity: 0;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+/* Light theme - dark green arrows */
+.dashboard-page .scroll-arrow span,
+.custom-gradient-light .scroll-arrow span {
+  border-left: 2px solid #004d40;
+  border-bottom: 2px solid #004d40;
+}
+
+/* Dark theme - white arrows */
+.dashboard-page.dark .scroll-arrow span,
+.custom-gradient-dark .scroll-arrow span {
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.scroll-arrow span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.scroll-arrow span:nth-child(2) {
+  top: 10px;
+  animation-delay: 0.2s;
+}
+
+.scroll-arrow span:nth-child(3) {
+  top: 20px;
+  animation-delay: 0.4s;
+}
+
+.investor-scroll-indicator:hover {
+  transform: translateX(-50%) translateY(5px);
+}
+
+@keyframes scrollArrow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}

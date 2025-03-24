@@ -8,7 +8,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isDarkMode, toggleTheme, scrollToTe
     { name: "Testimonials", path: "#testimonials", onClick: scrollToTestimonials }, // Add the scroll to testimonials functionality here
     { name: "About Us", path: "/about" },
     { name: "Impact", path: "/impact" },
-    { name: "Dashboard", path: "#dashboard", onClick: scrollToDashboard } // Add scroll to Dashboard functionality
+    { name: "Dashboard", path: "#dashboard", onClick: scrollToDashboard },// Add scroll to Dashboard functionality
+    { name: "Details", path: "#details" }, // New link
+
 ];
 
   return (

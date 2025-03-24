@@ -5,6 +5,9 @@ import SplashScreen from './components/Splash';
 import Home from './components/Home';
 import Testimonials from './components/Testimonials';
 import Dashboard from './components/Investors';
+import Login from './components/Login';
+import Register from './components/Register';
+
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -32,6 +35,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
         )}
       </div>

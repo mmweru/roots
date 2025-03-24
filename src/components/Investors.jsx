@@ -58,6 +58,16 @@ const InvestorDashboard = React.forwardRef(({ isDarkMode }, ref) => {
   const [totalImpactValue, setTotalImpactValue] = useState(0);
 
   const isLight = theme === 'light';
+  const scrollToNextSection = () => {
+    // Get the height of the current section
+    const currentSectionHeight = ref.current.offsetHeight;
+    
+    // Scroll to the next section (current position + current section height)
+    window.scrollTo({
+      top: window.pageYOffset + currentSectionHeight,
+      behavior: 'smooth'
+    });
+  };
 
   // Animated increment for Impact Score and Total Impact Value
   useEffect(() => {
@@ -99,15 +109,15 @@ const InvestorDashboard = React.forwardRef(({ isDarkMode }, ref) => {
 
   return (
     <div 
-    id="dashboard" 
-    ref={ref} 
-    className={`min-h-screen ${
+      id="dashboard" 
+      ref={ref} 
+      className={`min-h-screen ${
         isDarkMode 
         ? 'custom-gradient-dark' 
         : 'custom-gradient-light'
-    } p-6 transition-all duration-300`}
+      } p-6 transition-all duration-300 relative`}
     >
-<style jsx global>{`
+      <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
         .jacques-francois {
           font-family: 'Jacques Francois', serif;
@@ -137,7 +147,6 @@ const InvestorDashboard = React.forwardRef(({ isDarkMode }, ref) => {
         className="max-w-7xl mx-auto"
       >
         <h1 className={`jacques-francois text-4xl mt-20 mb-8 ${isLight ? 'text-white' : 'text-gray-800'}`}>Investor Dashboard</h1>
-
 
         {/* Portfolio Summary */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -178,7 +187,7 @@ const InvestorDashboard = React.forwardRef(({ isDarkMode }, ref) => {
         </div>
 
         {/* Main Content Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pb-24">
           {/* Performance Chart */}
           <motion.div 
             className="lg:col-span-2"
@@ -250,6 +259,15 @@ const InvestorDashboard = React.forwardRef(({ isDarkMode }, ref) => {
           </motion.div>
         </div>
       </motion.div>
+      
+      {/* Scroll indicator */}
+      <div className="investor-scroll-indicator" onClick={scrollToNextSection}>
+        <div className="scroll-arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   );
 });

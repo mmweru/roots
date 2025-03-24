@@ -1,0 +1,230 @@
+/* Global styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Jacques Francois", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.project-details-page {
+  color: #000202;
+  background: linear-gradient(135deg, #1cdf4d 0%, #eaeaea 50%, #00a035 100%);
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.project-details-page.dark {
+  background: linear-gradient(135deg, #0b0b0b 0%, #025702dc 40%, #010501 100%);
+  color: #fff;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #00a050;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.page-subheading {
+  font-size: 1.2rem;
+  color: #00a050;
+  margin-top: 0.5rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.dark .page-title,
+.dark .page-subheading {
+  color: #4caf50;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 160, 80, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid #00a050;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 160, 80, 0.2);
+}
+
+.dark .card {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 160, 80, 0.25);
+  border-left: 4px solid #4caf50;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f5fff5;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dark .card-header {
+  background-color: #2a2a2a;
+}
+
+.card-header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #00a050;
+}
+
+.dark .card-header h2 {
+  color: #4caf50;
+}
+
+.card-content {
+  padding: 1.5rem;
+  border-top: 1px solid #e0f2e0;
+}
+
+.dark .card-content {
+  border-top: 1px solid #333;
+}
+
+/* List styles */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: inherit;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+ul li:before {
+  content: "•";
+  color: #00a050;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.dark ul li:before {
+  color: #4caf50;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.action-buttons a {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-invest {
+  background-color: #00a050;
+  color: white;
+}
+
+.btn-invest:hover {
+  background-color: #008040;
+  transform: translateY(-2px);
+}
+
+.btn-watchlist,
+.btn-contact {
+  background-color: white;
+  color: #00a050;
+  border: 2px solid #00a050;
+}
+
+.btn-watchlist:hover,
+.btn-contact:hover {
+  background-color: #f5fff5;
+  transform: translateY(-2px);
+}
+
+.dark .btn-watchlist,
+.dark .btn-contact {
+  background-color: #1e1e1e;
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+
+.dark .btn-watchlist:hover,
+.dark .btn-contact:hover {
+  background-color: #262626;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-details-page {
+    padding: 1.5rem;
+  }
+  
+  .card-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
